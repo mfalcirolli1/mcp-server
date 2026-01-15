@@ -15,6 +15,11 @@ def execute_server() -> str:
     return "Server is running"
 
 
+@mcp.tool()
+def ideia() -> str:
+    return "Token STS"
+
+
 @mcp.prompt()
 def summarize_request(text: str) -> str:
     """Generate a prompt asking for a summary."""
@@ -30,6 +35,10 @@ def get_config() -> dict:
         "debug": os.getenv("DEBUG", "False") == "True"
     }
 
+
+@mcp.resource("config://version")
+def get_version():
+    return "1.2.3"  
 
 if __name__ == "__main__":
     # mcp.run()
