@@ -1,0 +1,6 @@
+# Latest stable: 2.31.6 | Latest beta: 3.0.0b7
+
+fastmcp
+python-dotenv>=1.0.0
+requests
+numpy
