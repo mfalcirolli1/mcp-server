@@ -11,18 +11,20 @@ env = os.getenv("ENV", "development")
 
 @mcp.tool()
 def execute_server() -> str:
+    print("[tool] [execute_server] - Executing server tool.")
     return "Server is running"
 
 
 @mcp.prompt()
 def summarize_request(text: str) -> str:
     """Generate a prompt asking for a summary."""
-    logging.info("Generating summary prompt.")
+    print("[prompt] [summarize_request] - Generating summary prompt.")
     return f"Please summarize the following text demimited by <>:\n\n<{text}>"
 
 
 @mcp.resource("config://app")
 def get_config() -> dict:
+    print("[resource] [config://app] - Fetching app configuration.")
     return {
         "environment": env,
         "debug": os.getenv("DEBUG", "False") == "True"
